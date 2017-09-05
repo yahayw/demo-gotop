@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GoTop功能</title>
+    <style>
+        .container {
+            position: relative;
+            border: 1px solid pink;
+            width: 900px;
+            margin: 0 auto;
+            padding:0 10px 20px 10px;
+        }
+
+        .container .top-btn {
+            position: absolute;
+            right: 50%;
+            bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: pink;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>GoTop按钮</h3>
+        <p>按一下这个GoTop按钮，页面就回到顶部</p>
+        <p>按按钮</p>
+        <h3>GoTop按钮</h3>
+        <p>按一下这个GoTop按钮，页面就回到顶部</p>
+        <p>按按钮</p>
+        <h3>GoTop按钮</h3>
+        <p>按一下这个GoTop按钮，页面就回到顶部</p>
+        <p>按按钮</p>
+        <h3>GoTop按钮</h3>
+        <p>按一下这个GoTop按钮，页面就回到顶部</p>
+        <p>按按钮</p>
+        <h3>GoTop按钮</h3>
+        <p>按一下这个GoTop按钮，页面就回到顶部</p>
+        <p>按按钮</p>
+        <h3>GoTop按钮</h3>
+        <p>按一下这个GoTop按钮，页面就回到顶部</p>
+        <p>按按钮</p>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script>
+        function GoTop(cont) {
+            this.ct = cont; 
+            this.target = this.createNode(this.ct); 
+            this.bindEvent(this.target)
+        }
+        GoTop.prototype = {
+            bindEvent: function (target) {
+                // console.log("can or not")
+                target.addEventListener("click", function () {
+                    // console.log("can or not")
+                    $(window).scrollTop(0)
+                })
+            },
+            createNode: function (ct) {
+                var topNode = document.createElement("span");
+                topNode.classList.add("top-btn");
+                topNode.innerText = "GoTop";
+                ct.append(topNode);
+                return topNode;
+            }
+        }
+        var ct = document.querySelector(".container")
+        new GoTop(ct)
+    </script>
+</body>
+
+</html>
